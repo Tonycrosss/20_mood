@@ -25,9 +25,18 @@
   <div class="quote" id="phrases">
 
   </div>
-
   <script>
-    document.getElementById('phrases').textContent = document.getElementById('quotes_json').textContent;
+    function randomIntFromInterval(min,max)
+    {
+      return Math.floor(Math.random()*(max-min)+min);
+    }
+  </script>
+  <script>
+    var phrasesJson = JSON.parse(document.getElementById('quotes_json').textContent);
+    var itemsQuantity = phrasesJson.length;
+    var randomNum = randomIntFromInterval(0,itemsQuantity);
+    var randomPhrase = phrasesJson[randomNum].phrase;
+    document.getElementById('phrases').textContent = randomPhrase;
   </script>
   <!--<script>-->
     <!--setInterval(function()-->
