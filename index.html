@@ -3,6 +3,8 @@
 <meta charset="utf-8">
 <head>
   <title>Настроение</title>
+  <link href="css/stylish-site.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
   <script id="quotes_json" type="application/json">
     [
       {
@@ -17,14 +19,21 @@
       },
       {
         "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
+      },
+      {
+        "phrase": "Тостер — это всего лишь луч смерти с недостаточным энергопитанием! Как только я пойму, как мне подключиться к главным реакторам, я СОЖГУ МИР!",
+        "signature": "©Тостер"
       }
     ]
   </script>
 </head>
 <body>
-  <div class="quote" id="phrases">
-
-  </div>
+  <header id="top" class="header">
+    <div class="text-vertical-center">
+      <div id="phrases" style="margin: 0; padding: 0; font-size: 4.5em; font-weight: 700; color: olive"></div>
+      <div id="signature" style="margin: 0; padding: 0; font-size: 2.5em; font-weight: 100; color: black"></div>
+    </div>
+  </header>
   <script>
     function randomIntFromInterval(min,max)
     {
@@ -35,8 +44,9 @@
     var phrasesJson = JSON.parse(document.getElementById('quotes_json').textContent);
     var itemsQuantity = phrasesJson.length;
     var randomNum = randomIntFromInterval(0,itemsQuantity);
-    var randomPhrase = phrasesJson[randomNum].phrase;
-    document.getElementById('phrases').textContent = randomPhrase;
+    var randomInfo = phrasesJson[randomNum];
+    document.getElementById('phrases').textContent = randomInfo.phrase;
+    document.getElementById('signature').textContent = randomInfo.signature;
   </script>
 </body>
 </html>
